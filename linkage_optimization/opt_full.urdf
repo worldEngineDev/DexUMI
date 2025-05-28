@@ -1,0 +1,2644 @@
+<?xml version="1.0" ?>
+<robot name="robot">
+  <link name="link_palm">
+    <visual>
+      <geometry>
+        <box size="0.00001 0.00001 0.00001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="link_palm_material">
+        <color rgba="1.0 1.0 1.0 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <link name="index_link_base">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.00001 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="link_base_material">
+        
+        
+        <color rgba="1.0 1.0 1.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <link name="index_link_x1_B">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.0185 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.00925 0"/>
+      
+      
+      <material name="link_x1_B_material">
+        
+        
+        <color rgba="1.0 0.0 0.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="index_joint_base_x1" type="fixed">
+    
+    
+    <parent link="index_link_base"/>
+    
+    
+    <child link="index_link_x1_B"/>
+    
+    
+    <origin xyz="0 -0.00 0" rpy="0 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="index_link_x1_A">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.007 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.0035 0"/>
+      
+      
+      <material name="link_x1_A_material">
+        
+        
+        <color rgba="0.0 1.0 0.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="index_joint_x1_A" type="fixed">
+    
+    
+    <parent link="index_link_x1_B"/>
+    
+    
+    <child link="index_link_x1_A"/>
+    
+    
+    <origin xyz="0 -0.0185 0" rpy="2.2689280275926285 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="index_link_A_C">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.036 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.018 0"/>
+      
+      
+      <material name="link_A_C_material">
+        
+        
+        <color rgba="0.0 0.0 1.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="index_joint_AC" type="revolute">
+    
+    
+    <parent link="index_link_x1_A"/>
+    
+    
+    <child link="index_link_A_C"/>
+    
+    
+    <origin xyz="0 -0.007 0" rpy="-2.552544031041707 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit lower="0" upper="3.141592653589793" effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="index_link_X1_X2">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.032 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.016 0"/>
+      
+      
+      <material name="link_X1_X2_material">
+        
+        
+        <color rgba="0.2 0.0 0.3 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="index_joint_X1_X2" type="revolute">
+    
+    
+    <parent link="index_link_x1_B"/>
+    
+    
+    <child link="index_link_X1_X2"/>
+    
+    
+    <origin xyz="0.005 -0.0185 0" rpy="0.17453292519943409 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit lower="0" upper="3.141592653589793" effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="index_link_X2_C">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.01 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.005 0"/>
+      
+      
+      <material name="link_X2_C_material">
+        
+        
+        <color rgba="0.2 0.3 0.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="index_joint_X2_C" type="revolute">
+    
+    
+    <parent link="index_link_X1_X2"/>
+    
+    
+    <child link="index_link_X2_C"/>
+    
+    
+    <origin xyz="0 -0.032 0" rpy="-1.8857629285681088 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit lower="0" upper="3.141592653589793" effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="index_link_C_D">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.04700000000000001 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.023500000000000004 0"/>
+      
+      
+      <material name="link_C_D_material">
+        
+        
+        <color rgba="0.0 0.2 0.3 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="index_joint_CD_CX2" type="fixed">
+    
+    
+    <parent link="index_link_X2_C"/>
+    
+    
+    <child link="index_link_C_D"/>
+    
+    
+    <origin xyz="-0.005  -0.01 0" rpy="2.028945255443408  0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="index_closing_link_1">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.002 0.002 0.002"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="closing_link_1_material">
+        
+        
+        <color rgba="0.2 0.2 0.2 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="index_new_closing_joint_1" type="fixed">
+    
+    
+    <parent link="index_link_A_C"/>
+    
+    
+    <child link="index_closing_link_1"/>
+    
+    
+    <origin xyz="0 -0.036 0" rpy="0 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="index_closing_link_2">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.002 0.002 0.002"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="closing_link_2_material">
+        
+        
+        <color rgba="0.9 0.6 0.2 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="index_new_closing_joint_2" type="fixed">
+    
+    
+    <parent link="index_link_X2_C"/>
+    
+    
+    <child link="index_closing_link_2"/>
+    
+    
+    <origin xyz="0 -0.01 0" rpy="0 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="index_new_fingertips_link">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.01 0.01 0.01"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="new_fingertips_link_material">
+        
+        
+        <color rgba="0.1 0.3 0.5 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="index_joint_close_finger" type="fixed">
+    
+    
+    <parent link="index_link_C_D"/>
+    
+    
+    <child link="index_new_fingertips_link"/>
+    
+    
+    <origin xyz="0 -0.038000000000000006 0" rpy="3.141592653589793 1.5707963267948966 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+
+  <joint name="palm_to_index" type="fixed">
+    <parent link="link_palm"/>
+    <child link="index_link_base"/>
+    <origin xyz="-0.028484522621836973 0.11531652218027903 0.0011660196758869403" rpy="0.0 -0.011829232058983008 3.141592653589793"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1" velocity="20"/>
+  </joint>
+  <link name="middle_link_base">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.00001 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="link_base_material">
+        
+        
+        <color rgba="1.0 1.0 1.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <link name="middle_link_x1_B">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.0185 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.00925 0"/>
+      
+      
+      <material name="link_x1_B_material">
+        
+        
+        <color rgba="1.0 0.0 0.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="middle_joint_base_x1" type="fixed">
+    
+    
+    <parent link="middle_link_base"/>
+    
+    
+    <child link="middle_link_x1_B"/>
+    
+    
+    <origin xyz="0 -0.00 0" rpy="0 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="middle_link_x1_A">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.007 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.0035 0"/>
+      
+      
+      <material name="link_x1_A_material">
+        
+        
+        <color rgba="0.0 1.0 0.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="middle_joint_x1_A" type="fixed">
+    
+    
+    <parent link="middle_link_x1_B"/>
+    
+    
+    <child link="middle_link_x1_A"/>
+    
+    
+    <origin xyz="0 -0.0185 0" rpy="2.2689280275926285 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="middle_link_A_C">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.036 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.018 0"/>
+      
+      
+      <material name="link_A_C_material">
+        
+        
+        <color rgba="0.0 0.0 1.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="middle_joint_AC" type="revolute">
+    
+    
+    <parent link="middle_link_x1_A"/>
+    
+    
+    <child link="middle_link_A_C"/>
+    
+    
+    <origin xyz="0 -0.007 0" rpy="-2.552544031041707 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit lower="0" upper="3.141592653589793" effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="middle_link_X1_X2">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.032 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.016 0"/>
+      
+      
+      <material name="link_X1_X2_material">
+        
+        
+        <color rgba="0.2 0.0 0.3 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="middle_joint_X1_X2" type="revolute">
+    
+    
+    <parent link="middle_link_x1_B"/>
+    
+    
+    <child link="middle_link_X1_X2"/>
+    
+    
+    <origin xyz="0.005 -0.0185 0" rpy="0.17453292519943409 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit lower="0" upper="3.141592653589793" effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="middle_link_X2_C">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.01 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.005 0"/>
+      
+      
+      <material name="link_X2_C_material">
+        
+        
+        <color rgba="0.2 0.3 0.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="middle_joint_X2_C" type="revolute">
+    
+    
+    <parent link="middle_link_X1_X2"/>
+    
+    
+    <child link="middle_link_X2_C"/>
+    
+    
+    <origin xyz="0 -0.032 0" rpy="-1.8857629285681088 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit lower="0" upper="3.141592653589793" effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="middle_link_C_D">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.04900000000000001 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.024500000000000004 0"/>
+      
+      
+      <material name="link_C_D_material">
+        
+        
+        <color rgba="0.0 0.2 0.3 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="middle_joint_CD_CX2" type="fixed">
+    
+    
+    <parent link="middle_link_X2_C"/>
+    
+    
+    <child link="middle_link_C_D"/>
+    
+    
+    <origin xyz="-0.005  -0.01 0" rpy="2.028945255443408  0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="middle_closing_link_1">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.002 0.002 0.002"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="closing_link_1_material">
+        
+        
+        <color rgba="0.2 0.2 0.2 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="middle_new_closing_joint_1" type="fixed">
+    
+    
+    <parent link="middle_link_A_C"/>
+    
+    
+    <child link="middle_closing_link_1"/>
+    
+    
+    <origin xyz="0 -0.036 0" rpy="0 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="middle_closing_link_2">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.002 0.002 0.002"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="closing_link_2_material">
+        
+        
+        <color rgba="0.9 0.6 0.2 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="middle_new_closing_joint_2" type="fixed">
+    
+    
+    <parent link="middle_link_X2_C"/>
+    
+    
+    <child link="middle_closing_link_2"/>
+    
+    
+    <origin xyz="0 -0.01 0" rpy="0 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="middle_new_fingertips_link">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.01 0.01 0.01"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="new_fingertips_link_material">
+        
+        
+        <color rgba="0.1 0.3 0.5 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="middle_joint_close_finger" type="fixed">
+    
+    
+    <parent link="middle_link_C_D"/>
+    
+    
+    <child link="middle_new_fingertips_link"/>
+    
+    
+    <origin xyz="0 -0.04000000000000001 0" rpy="3.141592653589793 1.5707963267948966 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+
+  <joint name="palm_to_middle" type="fixed">
+    <parent link="link_palm"/>
+    <child link="middle_link_base"/>
+    <origin xyz="-0.008646067313096981 0.11531652218027903 0.0011660196758869403" rpy="0.0 -0.0018662861139913112 3.141592653589793"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1" velocity="20"/>
+  </joint>
+  <link name="ring_link_base">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.00001 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="link_base_material">
+        
+        
+        <color rgba="1.0 1.0 1.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <link name="ring_link_x1_B">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.0185 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.00925 0"/>
+      
+      
+      <material name="link_x1_B_material">
+        
+        
+        <color rgba="1.0 0.0 0.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="ring_joint_base_x1" type="fixed">
+    
+    
+    <parent link="ring_link_base"/>
+    
+    
+    <child link="ring_link_x1_B"/>
+    
+    
+    <origin xyz="0 -0.00 0" rpy="0 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="ring_link_x1_A">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.007 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.0035 0"/>
+      
+      
+      <material name="link_x1_A_material">
+        
+        
+        <color rgba="0.0 1.0 0.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="ring_joint_x1_A" type="fixed">
+    
+    
+    <parent link="ring_link_x1_B"/>
+    
+    
+    <child link="ring_link_x1_A"/>
+    
+    
+    <origin xyz="0 -0.0185 0" rpy="2.2689280275926285 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="ring_link_A_C">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.036 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.018 0"/>
+      
+      
+      <material name="link_A_C_material">
+        
+        
+        <color rgba="0.0 0.0 1.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="ring_joint_AC" type="revolute">
+    
+    
+    <parent link="ring_link_x1_A"/>
+    
+    
+    <child link="ring_link_A_C"/>
+    
+    
+    <origin xyz="0 -0.007 0" rpy="-2.552544031041707 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit lower="0" upper="3.141592653589793" effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="ring_link_X1_X2">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.032 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.016 0"/>
+      
+      
+      <material name="link_X1_X2_material">
+        
+        
+        <color rgba="0.2 0.0 0.3 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="ring_joint_X1_X2" type="revolute">
+    
+    
+    <parent link="ring_link_x1_B"/>
+    
+    
+    <child link="ring_link_X1_X2"/>
+    
+    
+    <origin xyz="0.005 -0.0185 0" rpy="0.17453292519943409 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit lower="0" upper="3.141592653589793" effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="ring_link_X2_C">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.01 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.005 0"/>
+      
+      
+      <material name="link_X2_C_material">
+        
+        
+        <color rgba="0.2 0.3 0.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="ring_joint_X2_C" type="revolute">
+    
+    
+    <parent link="ring_link_X1_X2"/>
+    
+    
+    <child link="ring_link_X2_C"/>
+    
+    
+    <origin xyz="0 -0.032 0" rpy="-1.8857629285681088 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit lower="0" upper="3.141592653589793" effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="ring_link_C_D">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.046000000000000006 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.023000000000000003 0"/>
+      
+      
+      <material name="link_C_D_material">
+        
+        
+        <color rgba="0.0 0.2 0.3 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="ring_joint_CD_CX2" type="fixed">
+    
+    
+    <parent link="ring_link_X2_C"/>
+    
+    
+    <child link="ring_link_C_D"/>
+    
+    
+    <origin xyz="-0.005  -0.01 0" rpy="2.028945255443408  0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="ring_closing_link_1">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.002 0.002 0.002"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="closing_link_1_material">
+        
+        
+        <color rgba="0.2 0.2 0.2 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="ring_new_closing_joint_1" type="fixed">
+    
+    
+    <parent link="ring_link_A_C"/>
+    
+    
+    <child link="ring_closing_link_1"/>
+    
+    
+    <origin xyz="0 -0.036 0" rpy="0 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="ring_closing_link_2">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.002 0.002 0.002"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="closing_link_2_material">
+        
+        
+        <color rgba="0.9 0.6 0.2 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="ring_new_closing_joint_2" type="fixed">
+    
+    
+    <parent link="ring_link_X2_C"/>
+    
+    
+    <child link="ring_closing_link_2"/>
+    
+    
+    <origin xyz="0 -0.01 0" rpy="0 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="ring_new_fingertips_link">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.01 0.01 0.01"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="new_fingertips_link_material">
+        
+        
+        <color rgba="0.1 0.3 0.5 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="ring_joint_close_finger" type="fixed">
+    
+    
+    <parent link="ring_link_C_D"/>
+    
+    
+    <child link="ring_new_fingertips_link"/>
+    
+    
+    <origin xyz="0 -0.037000000000000005 0" rpy="3.141592653589793 1.5707963267948966 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+
+  <joint name="palm_to_ring" type="fixed">
+    <parent link="link_palm"/>
+    <child link="ring_link_base"/>
+    <origin xyz="0.009553663307593293 0.11531652218027903 0.0011660196758869403" rpy="0.0 0.04759549315741696 3.141592653589793"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1" velocity="20"/>
+  </joint>
+  <link name="little_link_base">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.00001 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="link_base_material">
+        
+        
+        <color rgba="1.0 1.0 1.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <link name="little_link_x1_B">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.0185 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.00925 0"/>
+      
+      
+      <material name="link_x1_B_material">
+        
+        
+        <color rgba="1.0 0.0 0.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="little_joint_base_x1" type="fixed">
+    
+    
+    <parent link="little_link_base"/>
+    
+    
+    <child link="little_link_x1_B"/>
+    
+    
+    <origin xyz="0 -0.00 0" rpy="0 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="little_link_x1_A">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.007 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.0035 0"/>
+      
+      
+      <material name="link_x1_A_material">
+        
+        
+        <color rgba="0.0 1.0 0.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="little_joint_x1_A" type="fixed">
+    
+    
+    <parent link="little_link_x1_B"/>
+    
+    
+    <child link="little_link_x1_A"/>
+    
+    
+    <origin xyz="0 -0.0185 0" rpy="2.2689280275926285 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="little_link_A_C">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.036 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.018 0"/>
+      
+      
+      <material name="link_A_C_material">
+        
+        
+        <color rgba="0.0 0.0 1.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="little_joint_AC" type="revolute">
+    
+    
+    <parent link="little_link_x1_A"/>
+    
+    
+    <child link="little_link_A_C"/>
+    
+    
+    <origin xyz="0 -0.007 0" rpy="-2.552544031041707 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit lower="0" upper="3.141592653589793" effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="little_link_X1_X2">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.032 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.016 0"/>
+      
+      
+      <material name="link_X1_X2_material">
+        
+        
+        <color rgba="0.2 0.0 0.3 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="little_joint_X1_X2" type="revolute">
+    
+    
+    <parent link="little_link_x1_B"/>
+    
+    
+    <child link="little_link_X1_X2"/>
+    
+    
+    <origin xyz="0.005 -0.0185 0" rpy="0.17453292519943409 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit lower="0" upper="3.141592653589793" effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="little_link_X2_C">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.01 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.005 0"/>
+      
+      
+      <material name="link_X2_C_material">
+        
+        
+        <color rgba="0.2 0.3 0.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="little_joint_X2_C" type="revolute">
+    
+    
+    <parent link="little_link_X1_X2"/>
+    
+    
+    <child link="little_link_X2_C"/>
+    
+    
+    <origin xyz="0 -0.032 0" rpy="-1.8857629285681088 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit lower="0" upper="3.141592653589793" effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="little_link_C_D">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.036 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.018 0"/>
+      
+      
+      <material name="link_C_D_material">
+        
+        
+        <color rgba="0.0 0.2 0.3 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="little_joint_CD_CX2" type="fixed">
+    
+    
+    <parent link="little_link_X2_C"/>
+    
+    
+    <child link="little_link_C_D"/>
+    
+    
+    <origin xyz="-0.005  -0.01 0" rpy="2.028945255443408  0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="little_closing_link_1">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.002 0.002 0.002"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="closing_link_1_material">
+        
+        
+        <color rgba="0.2 0.2 0.2 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="little_new_closing_joint_1" type="fixed">
+    
+    
+    <parent link="little_link_A_C"/>
+    
+    
+    <child link="little_closing_link_1"/>
+    
+    
+    <origin xyz="0 -0.036 0" rpy="0 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="little_closing_link_2">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.002 0.002 0.002"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="closing_link_2_material">
+        
+        
+        <color rgba="0.9 0.6 0.2 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="little_new_closing_joint_2" type="fixed">
+    
+    
+    <parent link="little_link_X2_C"/>
+    
+    
+    <child link="little_closing_link_2"/>
+    
+    
+    <origin xyz="0 -0.01 0" rpy="0 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="little_new_fingertips_link">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.01 0.01 0.01"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="new_fingertips_link_material">
+        
+        
+        <color rgba="0.1 0.3 0.5 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="little_joint_close_finger" type="fixed">
+    
+    
+    <parent link="little_link_C_D"/>
+    
+    
+    <child link="little_new_fingertips_link"/>
+    
+    
+    <origin xyz="0 -0.026999999999999996 0" rpy="3.141592653589793 1.5707963267948966 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+
+  <joint name="palm_to_little" type="fixed">
+    <parent link="link_palm"/>
+    <child link="little_link_base"/>
+    <origin xyz="0.028220318721124543 0.11531652218027903 0.0011660196758869403" rpy="0.0 0.10584631721213111 3.141592653589793"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1" velocity="20"/>
+  </joint>
+  <link name="thumb_proximal_0_link_base">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.00001 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="link_base_material">
+        
+        
+        <color rgba="1.0 1.0 1.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <link name="thumb_proximal_0_link_x1_B">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.015 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.0075 0"/>
+      
+      
+      <material name="link_x1_B_material">
+        
+        
+        <color rgba="1.0 0.0 0.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="thumb_proximal_0_joint_base_x1" type="fixed">
+    
+    
+    <parent link="thumb_proximal_0_link_base"/>
+    
+    
+    <child link="thumb_proximal_0_link_x1_B"/>
+    
+    
+    <origin xyz="0 -0.00 0" rpy="0 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="thumb_proximal_0_link_x1_A">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.0185 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.00925 0"/>
+      
+      
+      <material name="link_x1_A_material">
+        
+        
+        <color rgba="0.0 1.0 0.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="thumb_proximal_0_joint_x1_A" type="fixed">
+    
+    
+    <parent link="thumb_proximal_0_link_x1_B"/>
+    
+    
+    <child link="thumb_proximal_0_link_x1_A"/>
+    
+    
+    <origin xyz="0 -0.015 0" rpy="2.0943951023931957 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="thumb_proximal_0_link_A_C">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.07999999999999999 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.039999999999999994 0"/>
+      
+      
+      <material name="link_A_C_material">
+        
+        
+        <color rgba="0.0 0.0 1.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="thumb_proximal_0_joint_AC" type="revolute">
+    
+    
+    <parent link="thumb_proximal_0_link_x1_A"/>
+    
+    
+    <child link="thumb_proximal_0_link_A_C"/>
+    
+    
+    <origin xyz="0 -0.0185 0" rpy="-1.9634954084936207 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit lower="0" upper="3.141592653589793" effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="thumb_proximal_0_link_X1_X2">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.09999999999999999 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.049999999999999996 0"/>
+      
+      
+      <material name="link_X1_X2_material">
+        
+        
+        <color rgba="0.2 0.0 0.3 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="thumb_proximal_0_joint_X1_X2" type="revolute">
+    
+    
+    <parent link="thumb_proximal_0_link_x1_B"/>
+    
+    
+    <child link="thumb_proximal_0_link_X1_X2"/>
+    
+    
+    <origin xyz="0.005 -0.015 0" rpy="0.5235987755982991 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit lower="0" upper="3.141592653589793" effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="thumb_proximal_0_link_X2_C">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.028 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.014 0"/>
+      
+      
+      <material name="link_X2_C_material">
+        
+        
+        <color rgba="0.2 0.3 0.0 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="thumb_proximal_0_joint_X2_C" type="revolute">
+    
+    
+    <parent link="thumb_proximal_0_link_X1_X2"/>
+    
+    
+    <child link="thumb_proximal_0_link_X2_C"/>
+    
+    
+    <origin xyz="0 -0.09999999999999999 0" rpy="-2.7068710845240815 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit lower="0" upper="3.141592653589793" effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="thumb_proximal_0_link_C_D">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.005 0.044 0.0001"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 -0.022 0"/>
+      
+      
+      <material name="link_C_D_material">
+        
+        
+        <color rgba="0.0 0.2 0.3 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="thumb_proximal_0_joint_CD_CX2" type="fixed">
+    
+    
+    <parent link="thumb_proximal_0_link_X2_C"/>
+    
+    
+    <child link="thumb_proximal_0_link_C_D"/>
+    
+    
+    <origin xyz="-0.005  -0.028 0" rpy="1.9634954084936207  0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="thumb_proximal_0_closing_link_1">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.002 0.002 0.002"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="closing_link_1_material">
+        
+        
+        <color rgba="0.2 0.2 0.2 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="thumb_proximal_0_new_closing_joint_1" type="fixed">
+    
+    
+    <parent link="thumb_proximal_0_link_A_C"/>
+    
+    
+    <child link="thumb_proximal_0_closing_link_1"/>
+    
+    
+    <origin xyz="0 -0.07999999999999999 0" rpy="0 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="thumb_proximal_0_closing_link_2">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.002 0.002 0.002"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="closing_link_2_material">
+        
+        
+        <color rgba="0.9 0.6 0.2 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="thumb_proximal_0_new_closing_joint_2" type="fixed">
+    
+    
+    <parent link="thumb_proximal_0_link_X2_C"/>
+    
+    
+    <child link="thumb_proximal_0_closing_link_2"/>
+    
+    
+    <origin xyz="0 -0.028 0" rpy="0 0 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+  
+  <link name="thumb_proximal_0_new_fingertips_link">
+    
+    
+    <visual>
+      
+      
+      <geometry>
+        
+        
+        <box size="0.01 0.01 0.01"/>
+        
+      
+      </geometry>
+      
+      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      
+      
+      <material name="new_fingertips_link_material">
+        
+        
+        <color rgba="0.1 0.3 0.5 1.0"/>
+        
+      
+      </material>
+      
+    
+    </visual>
+    
+  
+  </link>
+  
+  
+  <joint name="thumb_proximal_0_joint_close_finger" type="fixed">
+    
+    
+    <parent link="thumb_proximal_0_link_C_D"/>
+    
+    
+    <child link="thumb_proximal_0_new_fingertips_link"/>
+    
+    
+    <origin xyz="0 -0.033 0" rpy="3.141592653589793 1.5707963267948966 0"/>
+    
+    
+    <axis xyz="1 0 0"/>
+    
+    
+    <limit effort="1" velocity="20"/>
+    
+  
+  </joint>
+  
+
+  <joint name="palm_to_thumb_proximal_0" type="revolute">
+    <parent link="link_palm"/>
+    <child link="thumb_proximal_0_link_base"/>
+    <origin xyz="-0.021711193621971835 0.018 -0.018" rpy="-3.141592653589779 1.5552750853323825 1.5707963267949108"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1" velocity="20"/>
+  </joint>
+</robot>
