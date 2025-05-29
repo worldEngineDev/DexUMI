@@ -244,7 +244,13 @@ python DexUMI/linkage_optimization/get_equivalent_finger.py -r path/to/store_sim
 python DexUMI/linkage_optimization/get_equivalent_thumb.py -r path/to/store_sim -b path/to/mocap
 ```
 
-This will output the optimal linkage parameters that best approximate the desired fingertip motion. We recommend running all scripts on a CPU with multiple cores for faster speed. One future research direction could be optimize exoskeleton more efficiently with generative model. 
+This will output the optimal linkage parameters that best approximate the desired fingertip motion. We provide our optimization results at `DexUMI/linkage_optimization/hardware_design_data/inspire_optimization_results`. We recommend running all scripts on a CPU with multiple cores for faster speed. One future research direction could be to optimize exoskeleton designs more efficiently with generative models. 
+
+You can visualize the optimization results by running:
+```bash
+python DexUMI/linkage_optimization/viz_full_fk.py
+```
+
 
 ### 🏷️ License
 This repository is released under the MIT license. 
