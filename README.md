@@ -1,7 +1,7 @@
 <h1 align="center" style="font-size: 3em;">Universal Manipulation Interface for<br>Dexterous Manipulation</h1>
 
 [[Project page]](https://dex-umi.github.io)
-[[Paper]](https://arxiv.org/pdf/2409.03403)
+[[Paper]](https://arxiv.org/pdf/2505.21864)
 [[Hardware Guide]](https://dex-umi.github.io/tutorial/hardware.html)
 [[Deployment Guide]](https://dex-umi.github.io/tutorial/deployment.html)
 
