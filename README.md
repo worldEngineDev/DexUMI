@@ -210,5 +210,5 @@ This repository is released under the MIT license.
 
 ### 🙏 Acknowledgement
 * Diffusion Policy is adapted from [Diffusion Policy](https://github.com/real-stanford/diffusion_policy)
-* Many useful utilies are adapted from [UMI](https://github.com/real-stanford/universal_manipulation_interface).
+* Many useful utilies are adapted from [UMI](https://github.com/real-stanford/universal_manipulation_interface)
 * Many hardware designs are adapted from [DOGlove](https://do-glove.github.io/)
