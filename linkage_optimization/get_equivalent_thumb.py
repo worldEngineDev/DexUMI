@@ -9,6 +9,9 @@ import numpy as np
 import scipy.spatial.transform as st
 import tqdm
 import zarr
+from inspire_urdf_writer import urdf_writer
+from scipy.optimize import minimize
+
 from dexumi.common.utility.matrix import (
     construct_coordinate,
     construct_coordinate_general,
@@ -18,8 +21,6 @@ from dexumi.common.utility.matrix import (
     invert_transformation,
     visualize_multiple_frames_and_points,
 )
-from inspire_urdf_writer import urdf_writer
-from scipy.optimize import minimize
 
 FINGRES = [
     "thumb_proximal_0",
@@ -166,14 +167,14 @@ def get_n_jobs(percentage):
     "--res-path",
     type=click.Path(exists=True),
     required=True,
-    help="Path to res.pkl file",
+    help="Path to sim zarr buffer",
 )
 @click.option(
     "-b",
     "--buffer-path",
     type=click.Path(exists=True),
     required=True,
-    help="Path to zarr buffer",
+    help="Path to gt zarr buffer",
 )
 @click.option(
     "-o",
@@ -525,11 +526,6 @@ def create_progress_bar(value, sweep_array):
     bar[closest_idx] = "*"
 
     return "".join(bar)
-
-
-# Usage example:
-# For 8 sweep points, output will look like: |||*|||
-# The * will be at the closest sweep point position
 
 
 if __name__ == "__main__":

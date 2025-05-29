@@ -9,6 +9,9 @@ import numpy as np
 import scipy.spatial.transform as st
 import tqdm
 import zarr
+from inspire_urdf_writer import urdf_writer
+from scipy.optimize import minimize
+
 from dexumi.common.utility.matrix import (
     construct_coordinate,
     construct_coordinate_general,
@@ -18,8 +21,6 @@ from dexumi.common.utility.matrix import (
     invert_transformation,
     visualize_multiple_frames_and_points,
 )
-from inspire_urdf_writer import urdf_writer
-from scipy.optimize import minimize
 
 FINGER_TO_OPTIMIZE = ["index", "middle", "ring", "little"]
 
@@ -65,11 +66,11 @@ def optimize_single_trajectory(args):
         method="L-BFGS-B",
         bounds=bounds,
         options={
-            "maxiter": 1000,  # More iterations (default is 100)
-            "ftol": 1e-8,  # Tighter function tolerance (default is 1e-6)
-            "gtol": 1e-8,  # Tighter gradient tolerance (default is 1e-6)
-            "maxcor": 50,  # More memory for L-BFGS-B (default is 10)
-            "maxfun": 15000,  # More function evaluations (default is max(1000, 20*n))
+            "maxiter": 1000,
+            "ftol": 1e-8,
+            "gtol": 1e-8,
+            "maxcor": 50,
+            "maxfun": 15000,
         },
     )
     return result.x, result.fun
@@ -157,14 +158,14 @@ def process_share_design(args):
     "--res-path",
     type=click.Path(exists=True),
     required=True,
-    help="Path to res.pkl file",
+    help="Path to sim zarr buffer",
 )
 @click.option(
     "-b",
     "--buffer-path",
     type=click.Path(exists=True),
     required=True,
-    help="Path to zarr buffer",
+    help="Path to gt zarr buffer",
 )
 @click.option(
     "-o",
@@ -214,7 +215,7 @@ def main(
     buffer = zarr.open(buffer_path, mode="r")
     viz_frames = {}
 
-    # Process fingers (same as before)
+    # Process fingers
     for finger_name in FINGER_TO_OPTIMIZE:
         episode = buffer[finger_name]["episode_0"]
         finger = episode["fingertips_marker"]

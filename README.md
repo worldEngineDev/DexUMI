@@ -207,6 +207,45 @@ python DexUMI/real_script/eval_policy/eval_inspire.py --model_path path/to/model
 ```
 
 Modify the transformation matrix before conducting evaluation. Please check our tutorial for calibrating the matrix.
+
+## 🧱 Hardware Optimization
+For hardware optimiation, please create a new virtual env to avoid package dependency conflicts:
+```bash
+cd DexUMI
+mamba env create -f environment_design.yml
+mamba activate dexumi_design 
+```
+The goal of hardware optimization is to: 1) Find equivalent mechanical structures to replace the target robot hand design to improve wearability, and 2) Use motion capture data to discover the target robot hand mechanical structure (closed-loop kinematics) if such information is unavailable in URDF.
+
+### 📸 Motion Capture Data 
+
+We use a motion capture system to record the fingertip trajectories of all five fingers on the Inspire Hand and store them in `DexUMI/linkage_optimization/hardware_design_data/inspire_mocap`. You can visualize the trajectories by running:
+
+```bash
+python DexUMI/linkage_optimization/viz_multi_fingertips_trajectory.py
+```
+
+### 🎮 Simulate Linkage Design and corrsponding Fingertip Poses Trajectory
+
+We first start with simulating four bar linkage with different link length and joint position and record the corrpsonding fingertips pose trajectory
+```bash
+ python DexUMI/linkage_optimization/sweep_valid_linkage_design.py --type finger/thumb ----save_path path/to/store_sim
+```
+
+### 🔧 Optimization
+
+We solve an optimization problem to find the best linkage design that matches the target (mocap) fingertip trajectory:
+
+```bash
+# For index, middle, ring, and pinky fingers
+python DexUMI/linkage_optimization/get_equivalent_finger.py -r path/to/store_sim -b path/to/mocap
+
+# For thumb
+python DexUMI/linkage_optimization/get_equivalent_thumb.py -r path/to/store_sim -b path/to/mocap
+```
+
+This will output the optimal linkage parameters that best approximate the desired fingertip motion. We recommend running all scripts on a CPU with multiple cores for faster speed. One future research direction could be optimize exoskeleton more efficiently with generative model. 
+
 ### 🏷️ License
 This repository is released under the MIT license. 
 
@@ -214,3 +253,4 @@ This repository is released under the MIT license.
 * Diffusion Policy is adapted from [Diffusion Policy](https://github.com/real-stanford/diffusion_policy)
 * Many useful utilies are adapted from [UMI](https://github.com/real-stanford/universal_manipulation_interface)
 * Many hardware designs are adapted from [DOGlove](https://do-glove.github.io/)
+* Thanks [Huy Ha](https://www.cs.columbia.edu/~huy/) for helping us to setup our [tutorial videos](https://www.youtube.com/playlist?list=PLAymUyzwr8XgxwJzWp1MHkBzKIRJLdRJg) on Youtube. 

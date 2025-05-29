@@ -1,6 +1,4 @@
 import os
-import pickle
-import tempfile
 import time
 import traceback
 from concurrent.futures import ProcessPoolExecutor, as_completed
@@ -155,7 +153,7 @@ def batch_run_simulations(param_batch, worker_id, type):
 @click.option(
     "-s",
     "--save_path",
-    default="/store/real/mengda/local/dexumi",
+    default="/store/real/mengda/DexUMI/data_local",
     help="Sweep save path",
 )
 def main(type, percentage_of_cores, save_path):
@@ -171,14 +169,8 @@ def main(type, percentage_of_cores, save_path):
 
     if type == "thumb":
         print("Running thumb simulation")
-        # link_x1_A_y_sweep = np.array([0.012])
-        # link_x1_A_y_sweep = np.array([0.08, 0.0125])
         link_x1_A_y_sweep = np.array([0.08, 0.010, 0.0125, 0.016, 0.0185])
         link_x1_B_y_sweep = np.array([0.015, 0.0175, 0.0195, 0.0215, 0.0235])
-        # angle_B_X1_A_sweep = np.array([0.39269908169872414])  # 22.5 degrees
-        # angle_B_X1_A_sweep = np.array([np.pi / 64])
-        # angle_B_X1_A_sweep = np.arange(np.pi / 64, np.pi / 4, np.pi / 32)
-        # angle_B_X1_A_sweep = np.array([np.pi / 3])
         angle_B_X1_A_sweep = np.array(
             [
                 # np.pi * 20 / 180,
@@ -196,24 +188,18 @@ def main(type, percentage_of_cores, save_path):
             np.pi / 2 + np.pi / 4,
             np.pi / 8,
         )
-        # angle_X2_C_D_sweep = np.arange(np.pi / 2 - np.pi / 4, np.pi / 2, np.pi / 16)
         angle_X2_C_D_sweep = np.arange(
             np.pi / 2,
             np.pi / 2 + np.pi / 4,
             np.pi / 8,
         )
-        # link_C_D_y_sweep = np.array([0.03, 0.034, 0.036, 0.040])
         link_C_D_y_sweep = np.array([0.038, 0.040, 0.042, 0.044, 0.046, 0.048])
         link_X2_C_y_sweep = np.arange(0.008, 0.036, 0.004)
         link_A_C_y_sweep = np.arange(0.04, 0.16, 0.02)
         link_X1_X2_y_sweep = np.arange(0.04, 0.16, 0.02)
     else:
         print("Running finger simulation")
-        # angle_B_X1_A_sweep = np.array([np.pi / 4])
         angle_B_X1_A_sweep = np.array([50 / 180 * np.pi])
-        # angle_B_X1_A_sweep = np.arange(
-        #     30 / 180 * np.pi, 65 / 180 * np.pi, 5 / 180 * np.pi
-        # )
         angle_X1_A_C_sweep = np.arange(
             np.pi / 4 - np.pi / 16, np.pi / 4 + np.pi / 8, np.pi / 48
         )
@@ -225,16 +211,13 @@ def main(type, percentage_of_cores, save_path):
         angle_X2_C_D_sweep = np.arange(
             np.pi / 2 + np.pi / 8, np.pi / 2 + np.pi / 4 + np.pi / 8, np.pi / 48
         )
-        # angle_X2_C_D_sweep = np.array([2.617993877991494])
         link_C_D_y_sweep = np.arange(0.036, 0.056, 0.001)
         link_X1_X2_y_sweep = np.array([0.032])
         link_A_C_y_sweep = np.array([0.030, 0.031, 0.032, 0.033, 0.034, 0.035, 0.036])
-        # link_A_C_y_sweep = np.array([0.030, 0.032, 0.034, 0.036])
         # link_x1_A_y_sweep = np.array([0.007, 0.009, 0.011])
         link_x1_A_y_sweep = np.array([0.007])
         link_X2_C_y_sweep = np.arange(0.006, 0.012, 0.001)
         link_x1_B_y_sweep = np.array([0.0185])
-        # link_x1_B_y_sweep = np.arange(0.017, 0.020, 0.001)
     print("Parameter sweep sizes:")
     print(f"angle_B_X1_A_sweep: {len(angle_B_X1_A_sweep)}")
     print(f"angle_X1_A_C_sweep: {len(angle_X1_A_C_sweep)}")
