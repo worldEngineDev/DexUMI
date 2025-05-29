@@ -1,9 +1,9 @@
 <h1 align="center" style="font-size: 3em;">Universal Manipulation Interface for<br>Dexterous Manipulation</h1>
 
 [[Project page]](https://dex-umi.github.io//)
-[[Paper]]()
-[[Hardware Guide]]()
-[[Data Collection & Generation Guide]]()
+[[Paper]](https://arxiv.org/pdf/2409.03403)
+[[Hardware Guide]](https://dex-umi.github.io/tutorial/hardware.html)
+[[Data Collection & Generation Guide]](https://dex-umi.github.io/tutorial/hardware.html)
 
 <img width="90%" src="assets/Teaser.png">
 
