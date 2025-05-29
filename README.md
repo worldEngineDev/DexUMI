@@ -130,6 +130,8 @@ Then start dataset generation, which converts exoskeleton data into robot hand d
 python DexUMI/real_script/data_generation_pipeline/render_all_dataset.py
 ```
 
+We provide some sample data [here](https://real.stanford.edu/dexumi/sample_data.zip) such that you can test the data generation pipeline. 
+
 The generated data will be stored in `path/to/data_replay`. Each episode structure should be:
 ```bash
 ├── combined.mp4
