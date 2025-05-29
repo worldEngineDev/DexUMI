@@ -3,7 +3,7 @@
 [[Project page]](https://dex-umi.github.io)
 [[Paper]](https://arxiv.org/pdf/2409.03403)
 [[Hardware Guide]](https://dex-umi.github.io/tutorial/hardware.html)
-[[Deployment Guide]](https://dex-umi.github.io/tutorial/hardware.html)
+[[Deployment Guide]](https://dex-umi.github.io/tutorial/deployment.html)
 
 <img width="90%" src="assets/Teaser.png">
 
