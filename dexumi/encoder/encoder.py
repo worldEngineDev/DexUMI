@@ -89,7 +89,7 @@ class JointEncoder(UARTReader):
         expected_checksum = sum(data_values) & 0xFFFF
 
         # Calculate the joint angles
-        reference_voltage = voltages[7]
+        reference_voltage = voltages[-2]
         joint_angles = [
             val / reference_voltage * 360 for val in voltages if reference_voltage != 0
         ]
