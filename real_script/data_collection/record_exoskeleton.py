@@ -115,6 +115,9 @@ def record_exoskeleton(
     except Exception as e:
         print(e)
         click.echo("Error: Failed to load reference data", err=True)
+        reference_encoder_values = None
+        reference_thumb_points = None
+        reference_finger_points = None
         raise e
 
     # Initialize data sources
@@ -240,7 +243,10 @@ def record_exoskeleton(
                         frame_count / (current_time - start_time),
                     )
                     # Draw reference points
-                    if not recorder_manager.is_recording:
+                    if (
+                        not recorder_manager.is_recording
+                        and reference_thumb_points is not None
+                    ):
                         draw_points(
                             viz_frame, reference_thumb_points, (0, 255, 0)
                         )  # Green for thumb
@@ -263,7 +269,10 @@ def record_exoskeleton(
                         # Initialize as green
                         text_color = (0, 255, 0)
 
-                        if not recorder_manager.is_recording:
+                        if (
+                            not recorder_manager.is_recording
+                            and reference_encoder_values is not None
+                        ):
                             voltage_diffs = abs(
                                 numeric_frame.joint_angles - reference_encoder_values
                             )
