@@ -17,11 +17,11 @@ dependencies:
   - bleach=6.2.0=pyhd8ed1ab_1
   - brotli-python=1.1.0=py310hf71b8c6_2
   - bzip2=1.0.8=h4bc722e_7
-  - ca-certificates=2024.12.14=hbcca054_0
+  - ca-certificates=2026.10.23=hbd8a1cb_0
   - cached-property=1.5.2=hd8ed1ab_1
   - cached_property=1.5.2=pyha770c72_1
   - cairo=1.18.2=h3394656_1
-  - certifi=2024.12.14=pyhd8ed1ab_0
+  - certifi=2026.10.23=pyhd8ed1ab_3
   - cffi=1.17.1=py310h8deb56e_0
   - charset-normalizer=3.4.0=pyhd8ed1ab_1
   - comm=0.2.2=pyhd8ed1ab_1
